@@ -25,6 +25,11 @@ public static class GeneticFunctions
         Debug.Log($"After Crossover Nibble {1}:\nA: {a} {Convert.ToString(a, 2)}\nB: {b} {Convert.ToString(b, 2)}");
         uint genome = 0b_0000_0000;
         MutateRandomBit(ref genome, 1);
+        Debug.Log($"Genome mutated by random bit {Convert.ToString(genome,2)}");
+        MutateRandomNibble(ref genome, 1);
+        Debug.Log($"Genome with random nibble mutated {Convert.ToString(genome,2)}");
+        MutateRandomBits(ref genome, 1);
+        Debug.Log($"Genome with random bits mutated {Convert.ToString(genome,2)}");
     }
 
     public static void CrossoverBit(ref uint a, ref uint b, byte bitNum)
@@ -104,7 +109,12 @@ public static class GeneticFunctions
     {
         if (UnityEngine.Random.value <= chance)
         {
-            uint 
+            // Generate 2 sets of 16 random bits
+            uint a = (uint)UnityEngine.Random.Range(0, 1 << 16);
+            //
+            uint b = (uint)UnityEngine.Random.Range(0, 1 << 16)<<16;
+            uint bits = a + b;
+            FlipBits(ref g, bits);
         }
     }
 }
