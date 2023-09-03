@@ -1,15 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public static class GeneticFunctions
 {
+    const uint BASE_NIBBLE = 0b_1111;
 
     [RuntimeInitializeOnLoadMethod]
     static void TEST()
     {
-        ushort bit = 2;
+        byte bit = 2;
         uint q = 1;
         Debug.Log($"Before shift: {q} {Convert.ToString(q,2)}");
         q <<= bit;
@@ -21,10 +23,14 @@ public static class GeneticFunctions
         Debug.Log($"After Crossover Bit {bit}:\nA: {a} {Convert.ToString(a, 2)}\nB: {b} {Convert.ToString(b, 2)}");
         CrossoverNibble(ref a, ref b, 1);
         Debug.Log($"After Crossover Nibble {1}:\nA: {a} {Convert.ToString(a, 2)}\nB: {b} {Convert.ToString(b, 2)}");
+        uint genome = 0b_0000_0000;
+        MutateRandomBit(ref genome, 1);
     }
 
-    public static void CrossoverBit(ref uint a, ref uint b, ushort bitNum)
+    public static void CrossoverBit(ref uint a, ref uint b, byte bitNum)
     {
+        if (bitNum >= sizeof(uint) * 8)
+            throw new ArgumentException("bit number out of range");
         uint bit = 1;
         bit <<= bitNum;
         if ((a&bit) != (b&bit))
@@ -34,10 +40,11 @@ public static class GeneticFunctions
         }
     }
 
-    public static void CrossoverNibble(ref uint a, ref uint b, ushort nibbleNum)
+    public static void CrossoverNibble(ref uint a, ref uint b, byte nibbleNum)
     {
-        uint nibble = 0b_1111;
-        nibble <<= (nibbleNum * 4);
+        if (nibbleNum >= sizeof(uint) * 2)
+            throw new ArgumentException("nibbles out of range");
+        uint nibble = BASE_NIBBLE << (nibbleNum * 4);
         CrossoverBits(ref a, ref b, nibble);
     }
 
@@ -50,6 +57,54 @@ public static class GeneticFunctions
         {
             a ^= bitsToChange;
             b ^= bitsToChange;
+        }
+    }
+
+    public static void FlipBit(ref uint g, byte bitNum)
+    {
+        if (bitNum >= sizeof(uint) * 8)
+            throw new ArgumentException("bit number out of range");
+        uint bit = 1;
+        bit <<= bitNum;
+        g ^= bit;
+    }
+
+    public static void FlipNibble(ref uint g, byte nibbleNum)
+    {
+        if (nibbleNum >= sizeof(uint) * 2)
+            throw new ArgumentException("nibbles out of range");
+        uint nibble = BASE_NIBBLE << (nibbleNum * 4);
+        FlipBits(ref g, nibble);
+    }
+
+    public static void FlipBits(ref uint g, uint bits)
+    {
+        g ^= bits;
+    }
+
+    public static void MutateRandomBit(ref uint g, float chance)
+    {
+        if (UnityEngine.Random.value <= chance)
+        {
+            byte bitNum = (byte)UnityEngine.Random.Range(0, sizeof(uint) * 8);
+            FlipBit(ref g, bitNum);
+        }
+    }
+
+    public static void MutateRandomNibble(ref uint g, float chance)
+    {
+        if (UnityEngine.Random.value <= chance)
+        {
+            byte nibbleNum = (byte)UnityEngine.Random.Range(0, sizeof(uint) * 2);
+            FlipNibble(ref g, nibbleNum);
+        }
+    }
+
+    public static void MutateRandomBits(ref uint g, float chance)
+    {
+        if (UnityEngine.Random.value <= chance)
+        {
+            uint 
         }
     }
 }
