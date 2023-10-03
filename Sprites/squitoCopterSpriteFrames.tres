@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bkrmddtahuv2q"]
+
+[ext_resource type="Texture2D" uid="uid://tq2xekfxvbmi" path="res://Sprites/squito_copter_rotate.png" id="1_4lcj1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mghlv"]
+atlas = ExtResource("1_4lcj1")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch3x1"]
+atlas = ExtResource("1_4lcj1")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e2dh"]
+atlas = ExtResource("1_4lcj1")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5mub"]
+atlas = ExtResource("1_4lcj1")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x767m"]
+atlas = ExtResource("1_4lcj1")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2jvr"]
+atlas = ExtResource("1_4lcj1")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jik8"]
+atlas = ExtResource("1_4lcj1")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4cb0"]
+atlas = ExtResource("1_4lcj1")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2wby"]
+atlas = ExtResource("1_4lcj1")
+region = Rect2(160, 160, 80, 80)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mghlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch3x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e2dh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5mub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x767m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2jvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jik8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4cb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2wby")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]

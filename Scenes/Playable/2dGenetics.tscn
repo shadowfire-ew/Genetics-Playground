@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://u2flyvfqlmq5"]
+[gd_scene load_steps=2 format=3 uid="uid://u2flyvfqlmq5"]
+
+[ext_resource type="PackedScene" uid="uid://ckmvxhjvxrbqb" path="res://Scenes/Objects/SquitoCopter.tscn" id="1_6kkad"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="SquitoCopter" parent="." instance=ExtResource("1_6kkad")]
+position = Vector2(159, 97)
+
+[node name="SquitoCopter2" parent="." instance=ExtResource("1_6kkad")]
+position = Vector2(374, 91)
+
+[node name="SquitoCopter3" parent="." instance=ExtResource("1_6kkad")]
+position = Vector2(217, 205)
