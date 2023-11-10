@@ -1,14 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://u2flyvfqlmq5"]
+[gd_scene load_steps=4 format=3 uid="uid://u2flyvfqlmq5"]
 
-[ext_resource type="PackedScene" uid="uid://ckmvxhjvxrbqb" path="res://Scenes/Objects/SquitoCopter.tscn" id="1_6kkad"]
+[ext_resource type="PackedScene" uid="uid://duenbbp4sj4o1" path="res://Scenes/Objects/SquitoCopter.tscn" id="1_6kkad"]
+[ext_resource type="Script" path="res://Scripts/GeneticsController2D.gd" id="2_w85hj"]
+[ext_resource type="PackedScene" uid="uid://cmi4e7qj8reys" path="res://Scenes/Objects/Collectable2D.tscn" id="3_7yd1i"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GeneticsController2D" type="Node2D" parent="."]
+script = ExtResource("2_w85hj")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+
+[node name="Collectable2D" parent="." instance=ExtResource("3_7yd1i")]
+
 [node name="SquitoCopter" parent="." instance=ExtResource("1_6kkad")]
-position = Vector2(159, 97)
-
-[node name="SquitoCopter2" parent="." instance=ExtResource("1_6kkad")]
-position = Vector2(374, 91)
-
-[node name="SquitoCopter3" parent="." instance=ExtResource("1_6kkad")]
-position = Vector2(217, 205)
+position = Vector2(2, 75)
+directions = 8
+genome = Array[int]([0, 2])
+id = "Test"
