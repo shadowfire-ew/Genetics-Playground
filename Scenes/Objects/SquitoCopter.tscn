@@ -1,18 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckmvxhjvxrbqb"]
+[gd_scene load_steps=3 format=3 uid="uid://duenbbp4sj4o1"]
 
-[ext_resource type="Script" path="res://Scripts/StartAnim.gd" id="1_m1q85"]
 [ext_resource type="SpriteFrames" uid="uid://bkrmddtahuv2q" path="res://Sprites/squitoCopterSpriteFrames.tres" id="2_rejt5"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pfr83"]
-radius = 40.0125
+[sub_resource type="CircleShape2D" id="CircleShape2D_0335e"]
+radius = 40.05
 
-[node name="SquitoCopter" type="RigidBody2D"]
-gravity_scale = 0.0
-script = ExtResource("1_m1q85")
+[node name="SquitoCopter" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_rejt5")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CircleShape2D_pfr83")
+shape = SubResource("CircleShape2D_0335e")
