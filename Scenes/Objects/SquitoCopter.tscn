@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://duenbbp4sj4o1"]
+[gd_scene load_steps=4 format=3 uid="uid://duenbbp4sj4o1"]
 
+[ext_resource type="Script" path="res://Scripts/SquitoCopter.gd" id="1_kyxe4"]
 [ext_resource type="SpriteFrames" uid="uid://bkrmddtahuv2q" path="res://Sprites/squitoCopterSpriteFrames.tres" id="2_rejt5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0335e"]
 radius = 40.05
 
-[node name="SquitoCopter" type="Area2D"]
+[node name="SquitoCopter" type="RigidBody2D" groups=["Squitos"]]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_kyxe4")
+step_size = 50.0
+speed = 1.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_rejt5")
 autoplay = "default"
 
