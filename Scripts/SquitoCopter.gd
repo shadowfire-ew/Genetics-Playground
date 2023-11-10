@@ -25,6 +25,8 @@ var _facing : int = 0
 var _moving : bool = false
 var _end_move : Vector2
 
+# TODO: energy system
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if _moving:
