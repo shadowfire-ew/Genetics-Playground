@@ -7,11 +7,9 @@
 radius = 40.05
 
 [node name="SquitoCopter" type="RigidBody2D" groups=["Squitos"]]
-gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_kyxe4")
-step_size = 50.0
-speed = 1.0
+move_force = 5000.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_rejt5")

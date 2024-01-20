@@ -17,6 +17,4 @@ script = ExtResource("2_w85hj")
 
 [node name="SquitoCopter" parent="." instance=ExtResource("1_6kkad")]
 position = Vector2(2, 75)
-directions = 8
-genome = Array[int]([0, 2])
-id = "Test"
+genome = Array[int]([1, 2, 2, 0, 0, 0])
